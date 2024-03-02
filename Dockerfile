@@ -1,6 +1,5 @@
 #Dockerfile for a Postfix email relay service
-FROM alpine:3.16
-MAINTAINER Juan Luis Baptiste juan.baptiste@gmail.com
+FROM alpine:3
 
 RUN apk update && \
     apk add bash gawk cyrus-sasl cyrus-sasl-login cyrus-sasl-crammd5 mailx \
@@ -14,5 +13,5 @@ RUN chmod +x /run.sh
 RUN newaliases
 
 EXPOSE 25
-#ENTRYPOINT ["/run.sh"]
+
 CMD ["/run.sh"]
